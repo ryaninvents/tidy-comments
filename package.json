@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:tidy-comments.helloWorld"
+    "onCommand:tidy-comments.tidyOne"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "tidy-comments.helloWorld",
-        "title": "Hello World"
+        "command": "tidy-comments.tidyOne",
+        "title": "Tidy current comment"
       }
     ]
   },
