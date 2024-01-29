@@ -18,3 +18,7 @@ This extension does not currently accept settings.
 ### 1.0.0
 
 Initial release.
+
+### 1.0.1
+
+Correctly handle indented comments.
