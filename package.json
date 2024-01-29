@@ -2,7 +2,7 @@
   "name": "tidy-comments",
   "displayName": "Tidy Comments",
   "description": "Tidy up comment headers",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "repository": "https://github.com/ryaninvents/tidy-comments",
   "publisher": "rmkennedy",
