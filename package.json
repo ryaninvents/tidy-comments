@@ -4,11 +4,13 @@
   "description": "Tidy up comment headers",
   "version": "0.0.1",
   "license": "MIT",
+  "repository": "https://github.com/ryaninvents/tidy-comments",
+  "publisher": "rmkennedy",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
-    "Other"
+    "Formatters"
   ],
   "activationEvents": [
     "onCommand:tidy-comments.tidyOne"
@@ -23,10 +25,10 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "yarn run compile && yarn run lint",
+    "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
