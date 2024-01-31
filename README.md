@@ -7,7 +7,7 @@ Create decorative headers for dividing your code.
 This extension defines a single command, "Tidy current comment". If your cursor is on a line containing
 a line comment (beginning with `//`), it will add a line of decorative dashes above and below the line.
 
-![Tidy Comments in action](https://github.com/ryaninvents/tidy-comments/blob/main/docs/demo.gif)
+![Tidy Comments in action](https://github.com/ryaninvents/tidy-comments/blob/main/docs/demo.gif?raw=true)
 
 ## Extension Settings
 
@@ -26,3 +26,7 @@ Correctly handle indented comments.
 ### 1.0.2
 
 Fix missing GIF in README.
+
+### 1.0.3
+
+Fix length of decorative lines.
