@@ -3,7 +3,8 @@
 import * as vscode from 'vscode';
 
 const SEPARATOR_REGEX = /^[\s]*\/\/[\s]*---+$/;
-const HEADING_REGEX = /^([\s]*)\/\/([\s]*.*)[\s]*$/;
+const HEADING_REGEX =
+  /^(?<indentation>[\s]*)\/\/(?<interspace>[\s]*)(?<heading>.*)[\s]*$/;
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -36,22 +37,34 @@ export function activate(context: vscode.ExtensionContext) {
         return;
       }
 
-      const [, indentation, heading] = currentLineMatch;
+      const { indentation, heading, interspace } = currentLineMatch.groups!;
 
       // Generate a list of dashes the same length as the current line's heading
       const dashes = '-'.repeat(heading.length);
 
       editor.edit((editBuilder) => {
         if (previousLine && SEPARATOR_REGEX.test(previousLine.text)) {
-          editBuilder.replace(previousLine.range, `${indentation}// ${dashes}`);
+          editBuilder.replace(
+            previousLine.range,
+            `${indentation}//${interspace}${dashes}`
+          );
         } else {
-          editBuilder.insert(currentLine.range.start, `${indentation}// ${dashes}\n`);
+          editBuilder.insert(
+            currentLine.range.start,
+            `${indentation}//${interspace}${dashes}\n`
+          );
         }
 
         if (nextLine && SEPARATOR_REGEX.test(nextLine.text)) {
-          editBuilder.replace(nextLine.range, `${indentation}// ${dashes}`);
+          editBuilder.replace(
+            nextLine.range,
+            `${indentation}//${interspace}${dashes}`
+          );
         } else {
-          editBuilder.insert(currentLine.range.end, `\n${indentation}// ${dashes}`);
+          editBuilder.insert(
+            currentLine.range.end,
+            `\n${indentation}//${interspace}${dashes}`
+          );
         }
       });
     }
